@@ -1,7 +1,7 @@
 from app import FreshNews
 def test_assignment():
     test = FreshNews()
-    FreshNews._full_routine()
+    test._full_routine()
 
 ### tests
 def open_website():

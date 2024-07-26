@@ -1,0 +1,237 @@
+2024-07-26 17:16:19,337 - app.scraper - INFO - Configuring months
+2024-07-26 17:16:19,338 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:16:19,340 - app.scraper - INFO - Configuring browser
+2024-07-26 17:16:19,576 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:16:19,580 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:16:22,404 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:16:22,407 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:16:22,411 - app.scraper - INFO - Opening website
+2024-07-26 17:16:22,413 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:16:32,618 - app.scraper - INFO - Website took too long to respond, it was stopped to begin interaction
+2024-07-26 17:16:32,622 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:16:32,964 - app.scraper - INFO - Submiting search
+2024-07-26 17:16:39,533 - app.scraper - INFO - Ordering search
+2024-07-26 17:16:42,041 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:16:42,099 - app.scraper - INFO - Filtering news
+2024-07-26 17:16:42,101 - app.scraper - INFO - Extracting information
+2024-07-26 17:16:42,231 - root - INFO - Checking if there's image to download
+2024-07-26 17:16:42,268 - app.scraper - INFO - Downloading image
+2024-07-26 17:18:27,293 - app.scraper - INFO - Configuring months
+2024-07-26 17:18:27,294 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:18:27,295 - app.scraper - INFO - Configuring browser
+2024-07-26 17:18:27,446 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:18:27,449 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:18:30,338 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:18:30,340 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:18:30,344 - app.scraper - INFO - Opening website
+2024-07-26 17:18:30,345 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:18:40,361 - app.scraper - INFO - Website took too long to respond, it was stopped to begin interaction
+2024-07-26 17:18:40,364 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:18:40,720 - app.scraper - INFO - Submiting search
+2024-07-26 17:20:24,197 - app.scraper - INFO - Configuring months
+2024-07-26 17:20:24,199 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:20:24,200 - app.scraper - INFO - Configuring browser
+2024-07-26 17:20:24,269 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:20:24,272 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:20:25,539 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:20:25,542 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:20:25,548 - app.scraper - INFO - Opening website
+2024-07-26 17:20:25,550 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:20:32,415 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:20:33,249 - app.scraper - INFO - Submiting search
+2024-07-26 17:20:39,710 - app.scraper - INFO - Ordering search
+2024-07-26 17:20:42,671 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:20:42,727 - app.scraper - INFO - Filtering news
+2024-07-26 17:20:42,728 - app.scraper - INFO - Extracting information
+2024-07-26 17:20:42,857 - root - INFO - Checking if there's image to download
+2024-07-26 17:20:42,898 - app.scraper - INFO - Downloading image
+2024-07-26 17:22:03,682 - app.scraper - INFO - Configuring months
+2024-07-26 17:22:03,683 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:22:03,685 - app.scraper - INFO - Configuring browser
+2024-07-26 17:22:03,864 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:22:03,867 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:22:06,678 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:22:06,679 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:22:06,684 - app.scraper - INFO - Opening website
+2024-07-26 17:22:06,687 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:22:12,900 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:22:13,678 - app.scraper - INFO - Submiting search
+2024-07-26 17:22:16,719 - RobotFramework - INFO - Clicking button 'class:see-all-button'.
+2024-07-26 17:22:19,664 - app.scraper - INFO - Ordering search
+2024-07-26 17:22:24,978 - app.scraper - INFO - Error on order_search: Element 'class:loading-icon' did not appear in 5 seconds.
+2024-07-26 17:22:24,981 - app.scraper - INFO - Error on order_search: Traceback (most recent call last):
+  File "/home/renato/projeto_thoughtful/app/scraper.py", line 183, in _order_search
+    self.BROWSER.wait_until_page_contains_element('class:loading-icon')
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 247, in wait_until_page_contains_element
+    return self._wait_until(
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 426, in _wait_until
+    self._wait_until_worker(condition, timeout, error)
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 443, in _wait_until_worker
+    raise AssertionError(not_found or error)
+AssertionError: Element 'class:loading-icon' did not appear in 5 seconds.
+
+2024-07-26 17:22:24,982 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:22:25,027 - app.scraper - INFO - Filtering news
+2024-07-26 17:22:25,029 - app.scraper - INFO - Extracting information
+2024-07-26 17:22:25,138 - root - INFO - Checking if there's image to download
+2024-07-26 17:22:25,173 - app.scraper - INFO - Downloading image
+2024-07-26 17:23:52,291 - app.scraper - INFO - Configuring months
+2024-07-26 17:23:52,293 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:23:52,294 - app.scraper - INFO - Configuring browser
+2024-07-26 17:23:52,377 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:23:52,380 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:23:53,661 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:23:53,664 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:24:38,527 - app.scraper - INFO - Configuring months
+2024-07-26 17:24:38,529 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:24:38,531 - app.scraper - INFO - Configuring browser
+2024-07-26 17:24:38,693 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:24:38,696 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:24:41,597 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:24:41,599 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:24:41,608 - app.scraper - INFO - Opening website
+2024-07-26 17:24:41,612 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:24:48,506 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:24:49,367 - app.scraper - INFO - Submiting search
+2024-07-26 17:24:52,830 - RobotFramework - INFO - Clicking button 'class:see-all-button'.
+2024-07-26 17:24:55,683 - app.scraper - INFO - Ordering search
+2024-07-26 17:24:57,165 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:24:57,253 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:57,254 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:57,377 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:57,416 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:57,630 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:57,632 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:57,826 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:57,856 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:58,041 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:58,042 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:58,157 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:58,188 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:58,378 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:58,379 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:58,510 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:58,538 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:58,726 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:58,728 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:58,845 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:58,875 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:59,071 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:59,073 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:59,195 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:59,224 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:59,411 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:59,412 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:59,525 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:59,554 - app.scraper - INFO - Downloading image
+2024-07-26 17:24:59,779 - app.scraper - INFO - Filtering news
+2024-07-26 17:24:59,781 - app.scraper - INFO - Extracting information
+2024-07-26 17:24:59,905 - root - INFO - Checking if there's image to download
+2024-07-26 17:24:59,939 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:00,138 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:00,140 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:00,280 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:00,319 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:00,519 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:00,521 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:00,657 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:00,692 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:00,889 - app.scraper - INFO - Next page
+2024-07-26 17:25:04,846 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:25:05,122 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:05,123 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:05,263 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:05,299 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:05,509 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:05,510 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:05,651 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:05,721 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:05,919 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:06,071 - RPA.Excel.Files - INFO - Closing workbook: <RPA.Excel.Files.XlsxWorkbook object at 0x7f271d5c1370>
+2024-07-26 17:25:06,077 - app.scraper - INFO - Extraction finished, extracted 12 news
+2024-07-26 17:25:27,399 - app.scraper - INFO - Configuring months
+2024-07-26 17:25:27,400 - app.scraper - INFO - Selected months [202407, 202406]
+2024-07-26 17:25:27,402 - app.scraper - INFO - Configuring browser
+2024-07-26 17:25:27,548 - RPA.Browser.Selenium - INFO - Webdriver version taken into use: ChromeDriver 125.0.6422.76 (67dcf7562b8fb4ab0819135589e37a97bcc8942c-refs/branch-heads/6422@{#1086})
+
+2024-07-26 17:25:27,552 - RobotFramework - INFO - Creating an instance of the Chrome WebDriver.
+2024-07-26 17:25:30,363 - RPA.Browser.Selenium - INFO - Created Chrome browser (version 125.0.6422) with arguments: --disable-dev-shm-usage --disable-web-security --allow-running-insecure-content --no-sandbox
+2024-07-26 17:25:30,366 - RobotFramework - INFO - <p>Attempted combinations:</p><div class="doc"><table><tr><th>Browser</th><th>Download</th><th>Error</th></tr><tr><td>Chrome</td><td>False</td><td></td></tr></table></div>
+2024-07-26 17:25:30,371 - app.scraper - INFO - Opening website
+2024-07-26 17:25:30,372 - RobotFramework - INFO - Opening url 'https://www.latimes.com/'
+2024-07-26 17:25:36,561 - app.scraper - INFO - Performing search. Search phrase: 'brazil
+2024-07-26 17:25:37,400 - app.scraper - INFO - Submiting search
+2024-07-26 17:25:39,802 - RobotFramework - INFO - Clicking button 'class:see-all-button'.
+2024-07-26 17:25:42,703 - app.scraper - INFO - Ordering search
+2024-07-26 17:25:48,047 - app.scraper - INFO - Error on order_search: Element 'class:loading-icon' did not appear in 5 seconds.
+2024-07-26 17:25:48,050 - app.scraper - INFO - Error on order_search: Traceback (most recent call last):
+  File "/home/renato/projeto_thoughtful/app/scraper.py", line 182, in _order_search
+    self.BROWSER.wait_until_page_contains_element('class:loading-icon')
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 247, in wait_until_page_contains_element
+    return self._wait_until(
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 426, in _wait_until
+    self._wait_until_worker(condition, timeout, error)
+  File "/home/renato/projeto_thoughtful/venv/lib/python3.8/site-packages/SeleniumLibrary/keywords/waiting.py", line 443, in _wait_until_worker
+    raise AssertionError(not_found or error)
+AssertionError: Element 'class:loading-icon' did not appear in 5 seconds.
+
+2024-07-26 17:25:48,053 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:25:48,114 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:48,115 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:48,253 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:48,292 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:48,489 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:48,491 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:48,608 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:48,638 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:48,853 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:48,855 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:48,969 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:48,998 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:49,191 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:49,193 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:49,318 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:49,348 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:49,545 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:49,547 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:49,662 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:49,693 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:49,896 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:49,897 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:50,030 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:50,064 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:50,253 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:50,254 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:50,370 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:50,401 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:50,590 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:50,591 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:50,709 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:50,745 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:50,934 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:50,935 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:51,054 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:51,087 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:51,271 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:51,272 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:51,388 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:51,420 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:51,598 - app.scraper - INFO - Next page
+2024-07-26 17:25:53,488 - app.scraper - INFO - Extracting information from page
+2024-07-26 17:25:53,532 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:53,534 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:53,922 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:53,958 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:54,156 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:54,157 - app.scraper - INFO - Extracting information
+2024-07-26 17:25:54,269 - root - INFO - Checking if there's image to download
+2024-07-26 17:25:54,298 - app.scraper - INFO - Downloading image
+2024-07-26 17:25:54,498 - app.scraper - INFO - Filtering news
+2024-07-26 17:25:54,647 - RPA.Excel.Files - INFO - Closing workbook: <RPA.Excel.Files.XlsxWorkbook object at 0x7f37ad424f70>
+2024-07-26 17:25:54,648 - app.scraper - INFO - Extraction finished, extracted 12 news

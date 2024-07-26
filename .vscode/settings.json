@@ -1,0 +1,6 @@
+{
+    "python.terminal.activateEnvironment": false,
+    "python.analysis.extraPaths": [
+        "/home/renato/projeto_thoughtful/."
+    ]
+}
