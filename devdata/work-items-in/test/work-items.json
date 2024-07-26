@@ -1,0 +1,22 @@
+[
+  {
+      "payload": {"search_phrase": "brazil",
+      "category": "world",
+      "target_months": 2
+      }
+  },
+  {
+    "payload": {
+      "search_phrase": "brazil",
+      "category": "world",
+      "target_months": 2
+    }
+},
+{
+  "payload": {
+    "search_phrase": "biden",
+    "category": "world",
+    "target_months": 2
+  }
+}
+]
