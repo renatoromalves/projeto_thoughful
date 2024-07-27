@@ -1,15 +1,14 @@
 import logging
-import requests 
+import requests
 import time
+import traceback
 from datetime import timedelta, datetime
-from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.remote.webelement import WebElement
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from RPA.Browser.Selenium import Selenium
 from unidecode import unidecode
-from .utils import *
+from .utils import has_value, convert_date_to_datetime
 from .excel_handler import ExcelHandler
-import traceback
 
 logging.basicConfig(
     level=logging.INFO,
