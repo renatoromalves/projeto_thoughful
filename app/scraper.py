@@ -86,7 +86,7 @@ class FreshNews(ExcelHandler):
         timeout = timedelta(seconds=10)
         self.BROWSER.open_available_browser(headless=True)
         self.BROWSER.set_selenium_page_load_timeout(timeout)
-        self.DOWNLOAD_BROWSER.open_available_browser(headless=False)
+        self.DOWNLOAD_BROWSER.open_available_browser(headless=True)
 
     def _config_months(self, target_months:int) -> None:
         '''Used to set valid months to store'''
