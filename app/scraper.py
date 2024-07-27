@@ -42,7 +42,7 @@ class FreshNews(ExcelHandler):
         for topic in topics:
             if self.category in topic.text.lower():
                 idx_to_click.append(topics.index(topic))
-        logging.info(f'indexes to click {idx_to_click}')
+        logging.info(f'Indexes to click {idx_to_click}')
         return idx_to_click
 
     def _click_all_topics(self, idx_to_click:list):
@@ -130,7 +130,9 @@ class FreshNews(ExcelHandler):
                 self._next_page()
                 if not self._extract_from_page():
                     break
+
         self.BROWSER.close_all_browsers()
+        self.DOWNLOAD_BROWSER.close_all_browsers()
         self._save_and_close_workbook()
         logger.info(f"Extraction finished, extracted {len(self.ALL_DATA)} news")
 
@@ -183,8 +185,7 @@ class FreshNews(ExcelHandler):
         search_input.send_keys(f'"{self.search_phrase}"')
         try:
             logger.info("Submiting search")
-            time.sleep(5) ## TODO: set timeout
-            search_input.submit()
+            self.BROWSER.find_element('css:[data-element="search-submit-button"]').click()
         except TimeoutException:
             logger.info("Took much time to respond, browser stopped to continue interaction")
             pass
@@ -200,8 +201,6 @@ class FreshNews(ExcelHandler):
         except ElementClickInterceptedException:
             url = next_page_button.find_element(by='tag name',value='a').get_attribute('href')
             self.BROWSER.go_to(url)
-            # self.BROWSER.screenshot()
-            # next_page_button.click()
         self.BROWSER.wait_for_expected_condition('staleness_of', next_page_button)
             
     def _news_filter(self,news_month) -> bool:
