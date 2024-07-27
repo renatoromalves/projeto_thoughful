@@ -40,10 +40,9 @@ class FreshNews(ExcelHandler):
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
-        # self.BROWSER.close_all_browsers()
-        # self.DOWNLOAD_BROWSER.close_all_browsers()
-        # self._save_and_close_workbook()
-        logger.info(f"Extraction finished, extracted {len(self.ALL_DATA)} news")
+        self.BROWSER.close_all_browsers()
+        self.DOWNLOAD_BROWSER.close_all_browsers()
+        self._save_and_close_workbook()
         if exc_type is not None:
             logger.info(f"An exception occurred: {exc_value}")
             logger.debug(f'{traceback}')
@@ -93,7 +92,7 @@ class FreshNews(ExcelHandler):
         date_raw = elem.find_element(*selectors['DATE']).text
         converted_date = convert_date_to_datetime(date_raw)
         year_month = int(converted_date.strftime("%Y%m"))
-        
+
         return self._news_filter(year_month)
 
     def _config_browser(self):
@@ -148,6 +147,7 @@ class FreshNews(ExcelHandler):
                 if not self._extract_from_page():
                     break
 
+        logger.info(f"Extraction finished, extracted {len(self.ALL_DATA)} news")
 
 
     
