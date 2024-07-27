@@ -3,7 +3,7 @@ import requests
 import time
 from datetime import timedelta, datetime
 from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException,ElementNotInteractableException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, ElementClickInterceptedException
 from selenium.webdriver.remote.webelement import WebElement
 from RPA.Browser.Selenium import Selenium
 from unidecode import unidecode
@@ -28,37 +28,52 @@ class FreshNews(ExcelHandler):
         self.BROWSER = Selenium()
         self.URL = 'https://www.latimes.com/'
         self.ALL_DATA = list()
-        self.actual_month = int(datetime.now().strftime('%Y%m')) #millenial bug avoidant, jk
+        self.actual_month = int(datetime.now().strftime('%Y%m')) # "millenial bug" avoidant, jk
         self._config_months(int(target_months))
         self._config_browser()
         excel_file = f"output/{datetime.now().strftime('%Y-%m-%d %H:%M')}.xlsx"
         super().__init__(excel_file)
 
 
+    def _category_filter_select(self) -> None:
+        self._see_all_topics()
+        topics = self.BROWSER.find_elements('class:search-filter-menu > li')
+        idx_to_click = list()
+        for topic in topics:
+            if self.category in topic.text.lower():
+                idx_to_click.append(topics.index(topic))
+        logging.info(f'indexes to click {idx_to_click}')
+        return idx_to_click
+
+    def _click_all_topics(self, idx_to_click:list):
+        locator = 'class:search-filter-menu > li'
+        topics = self.BROWSER.find_elements(locator)
+        for idx in idx_to_click:
+            elem = topics[idx].find_element('css selector','.checkbox-input')
+            elem.click()
+            self.BROWSER.wait_for_expected_condition('staleness_of', topics[idx])
+            self._see_all_topics()
+            topics = self.BROWSER.find_elements(locator)
+
+    def _see_all_topics(self) -> None:
+        try:
+            self.BROWSER.wait_and_click_button('class:see-all-button')
+        except NoSuchElementException:
+            pass
+
     def _category_filter(self) -> None:
         '''Filter by category'''
         if not self.category: return
-        apply_filter_locator = 'class:search-results-module-filters-apply'
-        
         self.BROWSER.find_element('class:search-results-module-aside').click()
-        try:
+        idx_to_click = self._category_filter_select()
+        self._click_all_topics(idx_to_click)
 
-            self.BROWSER.wait_and_click_button('class:see-all-button')
-
-        except NoSuchElementException:
-            pass
-        topics = self.BROWSER.find_elements('class:search-filter-menu > li')
-        for topic in topics:
-            topic_name = topic.text.split('\n')[0].lower()
-            if self.category in topic_name:
-                topic.find_element('css selector','.checkbox-input').click()
-
-        apply_filter = self.BROWSER.find_element(apply_filter_locator)
-        apply_filter.click()
-        self.BROWSER.wait_for_expected_condition('staleness_of', apply_filter)
         
 
-    def _check_year_month(self,elem:WebElement)-> bool:
+    def _check_year_month(self,web_elem_idx:int)-> bool:
+        '''Checks if news date is inside our target dates'''
+        elems = self.BROWSER.find_elements('class:search-results-module-results-menu > li')
+        elem = elems[web_elem_idx]
         date_raw = elem.find_element("css selector", ".promo-timestamp").text
         converted_date = convert_date_to_datetime(date_raw)
         year_month = int(converted_date.strftime("%Y%m"))
@@ -68,7 +83,7 @@ class FreshNews(ExcelHandler):
         '''Used to open and set timeout to browser and avoid being stuck on huge load screens'''
         logger.info("Configuring browser")
         timeout = timedelta(seconds=10)
-        self.BROWSER.open_available_browser()
+        self.BROWSER.open_available_browser(headless=True)
         self.BROWSER.set_selenium_page_load_timeout(timeout)
 
     def _config_months(self, target_months:int) -> None:
@@ -86,7 +101,7 @@ class FreshNews(ExcelHandler):
         return text.count(self.search_phrase)
 
     def _download_image_prefered(self, image_url:str, file_path:str):
-    # This is just a prefered way to handle this situation
+        # This is just a prefered way to handle this situation
         logger.info("Downloading image")
         if not file_path.endswith('.jpg'):
             file_path = f'{file_path}.jpg'
@@ -103,12 +118,12 @@ class FreshNews(ExcelHandler):
     def _extract_from_page(self) -> None:
         '''Extracts information from current page'''
         logger.info("Extracting information from page")
-        locator = 'class:search-results-module-results-menu > li'
-        elems = self.BROWSER.find_elements(locator)
-        for elem in elems:
-            if self._check_year_month(elem):
-                data = self._transform_data(elem)            
-                logger.debug("Appending data to ALL_DATA")
+        
+        idx_elems = len(self.BROWSER.find_elements('class:search-results-module-results-menu > li'))
+        for idx_elem in range(idx_elems):
+            if self._check_year_month(idx_elem):
+                data = self._transform_data(idx_elem)            
+                logger.debug("Appending data to excel")
                 self._update_row(data)
                 self.ALL_DATA.append(data)
             else: 
@@ -156,7 +171,7 @@ class FreshNews(ExcelHandler):
             self.BROWSER.find_element('class:search-results-module-next-page > a')
             return True
         except:
-            logger.debug("Final page extracted")
+            logger.debug("Has next page: False")
             pass
         return False
 
@@ -165,6 +180,7 @@ class FreshNews(ExcelHandler):
         logger.info("Opening website")
         try:
             self.BROWSER.go_to(self.URL)
+            self.BROWSER.maximize_browser_window()
         except TimeoutException:
             logger.info("Website took too long to respond, it was stopped to begin interaction")
             pass
@@ -174,17 +190,15 @@ class FreshNews(ExcelHandler):
         logger.info("Ordering search")
         try:
             locator = 'class:select-input'
-
-            self.BROWSER.wait_until_page_contains_element(locator)
-            order_by = self.BROWSER.find_element(locator)
-            order_by.send_keys("N")
+            self.BROWSER.wait_until_element_is_enabled(locator,timeout=15)
+            self.BROWSER.find_element(locator).send_keys("N")
             self.BROWSER.wait_until_page_contains_element(locator)
             self.BROWSER.wait_until_page_contains_element('class:loading-icon')
             self.BROWSER.wait_until_page_does_not_contain_element('class:loading-icon')
             return True
         except Exception as e:
             logger.info(f"Error on order_search: {e}")
-            logger.info(f"Error on order_search: {traceback.format_exc()}")
+            logger.debug(f"Error on order_search: {traceback.format_exc()}")
         return False
             
 
@@ -197,25 +211,41 @@ class FreshNews(ExcelHandler):
         search_input.send_keys(f'"{self.search_phrase}"')
         try:
             logger.info("Submiting search")
+            time.sleep(5) ## TODO: set timeout
             search_input.submit()
         except TimeoutException:
             logger.info("Took much time to respond, browser stopped to continue interaction")
             pass
-        self.BROWSER.wait_for_expected_condition('staleness_of', search_input)
+        self.BROWSER.wait_until_element_contains('class:search-results-module-count','results')
 
     def _next_page(self):
         '''Go to next page'''
         logger.info("Next page")
+        self.BROWSER.execute_javascript('window.scrollTo(0, document.body.scrollHeight);')
         next_page_button = self.BROWSER.find_element('class:search-results-module-next-page')
-        next_page_button.click()
+        try:
+            next_page_button.click()
+        except ElementClickInterceptedException:
+            url = next_page_button.find_element(by='tag name',value='a').get_attribute('href')
+            self.BROWSER.go_to(url)
+            # self.BROWSER.screenshot()
+            # next_page_button.click()
         self.BROWSER.wait_for_expected_condition('staleness_of', next_page_button)
             
+    def _news_filter(self,news_month) -> bool:
+        logger.info("Filtering news")
+        if news_month in self.months:
+            logger.debug("News inside target dates")
+            return True
+        logger.debug("News outside target dates")
+        return False
 
-    def _transform_data(self, elem:WebElement) -> dict:
+    def _transform_data(self, web_elem_idx:int) -> dict:
         '''Get element text and convert to an dictionary'''
         logger.info("Extracting information")
         infos = dict()
-
+        elems = self.BROWSER.find_elements('class:search-results-module-results-menu > li')
+        elem = elems[web_elem_idx]
         title = elem.find_element("css selector", ".promo-title").text
         description = elem.find_element("css selector", ".promo-description").text
         date_raw = elem.find_element("css selector", ".promo-timestamp").text
@@ -236,13 +266,6 @@ class FreshNews(ExcelHandler):
 
 
 
-    def _news_filter(self,news_month) -> bool:
-        logger.info("Filtering news")
-        if news_month in self.months:
-            logger.debug("News inside target dates")
-            return True
-        logger.debug("News outside target dates")
-        return False
 
 
 
