@@ -265,14 +265,6 @@ class FreshNews(ExcelHandler):
         return infos
 
 
-
-
-
-
-    # def _download_image_worst_way(self, image:WebElement, file_path:str):
-    ## This is the worse way I can imagine to handle the download situation, but works fine depending on what we need
-    #     return image.screenshot(file_path)
-
     # def _download_image_selenium(self, image_url:str):
     #     self.BROWSER.open_available_browser(image_url)
 
