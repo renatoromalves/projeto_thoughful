@@ -26,6 +26,7 @@ class FreshNews(ExcelHandler):
         self.search_phrase = unidecode(search_phrase.lower())
         self.category = category.lower()
         self.BROWSER = Selenium()
+        self.DOWNLOAD_BROWSER = Selenium()
         self.URL = 'https://www.latimes.com/'
         self.ALL_DATA = list()
         self.actual_month = int(datetime.now().strftime('%Y%m')) # "millenial bug" avoidant, jk
@@ -85,6 +86,7 @@ class FreshNews(ExcelHandler):
         timeout = timedelta(seconds=10)
         self.BROWSER.open_available_browser(headless=True)
         self.BROWSER.set_selenium_page_load_timeout(timeout)
+        self.DOWNLOAD_BROWSER.open_available_browser(headless=False)
 
     def _config_months(self, target_months:int) -> None:
         '''Used to set valid months to store'''
@@ -100,20 +102,7 @@ class FreshNews(ExcelHandler):
         text = unidecode(text.lower())
         return text.count(self.search_phrase)
 
-    def _download_image_prefered(self, image_url:str, file_path:str):
-        # This is just a prefered way to handle this situation
-        logger.info("Downloading image")
-        if not file_path.endswith('.jpg'):
-            file_path = f'{file_path}.jpg'
 
-        r = requests.get(image_url)
-        if r.ok:
-            with open(f'{file_path}', 'wb') as f:
-                f.write(r.content)
-            logger.debug("Image Downloaded")
-            return True
-        logger.debug("Error downloading image")
-        return False
     
     def _extract_from_page(self) -> None:
         '''Extracts information from current page'''
@@ -146,23 +135,7 @@ class FreshNews(ExcelHandler):
         self._save_and_close_workbook()
         logger.info(f"Extraction finished, extracted {len(self.ALL_DATA)} news")
 
-    def _get_image(self, elem:WebElement, filename:str) -> dict:
-        logging.info("Checking if there's image to download")
-        image_dict = dict()
-        try:
-            image = elem.find_element("css selector", "img")
-            logging.debug("Yes, it does")
-            image_sources = image.get_attribute('srcset')
-            image_url = image_sources.split(',')[-1].split(' 840w')[0]
-            self._download_image_prefered(image_url, filename)
-            image_dict['picture_filename'] = image.get_attribute('alt')
-            image_dict['saved_filename'] = filename
-            
-        except NoSuchElementException: 
-            logging.debug("No, it doesn't")
-            image_dict['picture_filename'] = 'No image'
-            image_dict['saved_filename'] = 'No saved image'
-        return image_dict
+
     
     def _has_next_page(self) -> bool:
         '''Checks if it has another page'''
@@ -265,9 +238,44 @@ class FreshNews(ExcelHandler):
         return infos
 
 
-    # def _download_image_selenium(self, image_url:str):
-    #     self.BROWSER.open_available_browser(image_url)
+    def _download_image_selenium(self, image_url:str, filename:str):
+        logging.debug('"Download" using selenium')
+        self.DOWNLOAD_BROWSER.go_to(image_url)
+        self.DOWNLOAD_BROWSER.screenshot('tag:img', filename)
 
+
+    def _get_image(self, elem:WebElement, filename:str) -> dict:
+        logging.debug("Checking if there's image to download")
+        image_dict = dict()
+        try:
+            image = elem.find_element("css selector", "img")
+            logging.debug("Yes, it does")
+            image_sources = image.get_attribute('srcset')
+            image_url = image_sources.split(',')[-1].split(' 840w')[0]
+            self._download_image_selenium(image_url, filename)
+            image_dict['picture_filename'] = image.get_attribute('alt')
+            image_dict['saved_filename'] = filename
+            
+        except NoSuchElementException: 
+            logging.debug("No, it doesn't")
+            image_dict['picture_filename'] = 'No image'
+            image_dict['saved_filename'] = 'No saved image'
+        return image_dict
+
+    def _download_image_prefered(self, image_url:str, file_path:str):
+        # This is just a prefered way to handle this situation
+        logger.info("Downloading image")
+        if not file_path.endswith('.jpg'):
+            file_path = f'{file_path}.jpg'
+
+        r = requests.get(image_url)
+        if r.ok:
+            with open(f'{file_path}', 'wb') as f:
+                f.write(r.content)
+            logger.debug("Image Downloaded")
+            return True
+        logger.debug("Error downloading image")
+        return False
 
 if __name__ == '__main__':
     news = FreshNews()
